@@ -214,29 +214,7 @@ grep -m1 MPP_VERSION rkmpp/mpp/version.h
 
 A passing install check is not a hardware test. Section 5 is. `INSTALL_OK` plus `h264,640,360` and `hevc,640,360` from section 5 means the stack is usable.
 
-## 6. Publishing this repo
-
-From a checkout that already has the three submodules at the pins above:
-
-```bash
-git add README.md README-vi.md .gitmodules .gitignore \
-  build-all.sh install-new-to-usr-local.sh
-git commit
-git push
-```
-
-Do not `git add rkrga rkmpp ffmpeg-rockchip` as normal directories. That would try to vendor the trees (or, inside an existing parent repo, store only a gitlink with no source for the cloner). `.gitignore` already drops `rkmpp/build-new/`, `rkrga/build-native/`, and FFmpeg object files. `rkmpp/build/cmake/` is upstream source; do not ignore the whole `rkmpp/build` directory.
-
-After a push, confirm with a second clone:
-
-```bash
-git clone --recurse-submodules https://github.com/thanhtantran/rk3588-media-build.git /tmp/rk3588-media-build-check
-git -C /tmp/rk3588-media-build-check submodule status
-```
-
-The three ids must match the table in this file, and `rkmpp/CMakeLists.txt` must exist. Empty directories mean the submodules were not fetched.
-
-## 7. Failures
+## 6. Failures
 
 | Symptom | Cause |
 | --- | --- |

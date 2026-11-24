@@ -212,29 +212,7 @@ grep -m1 MPP_VERSION rkmpp/mpp/version.h
 
 `INSTALL_OK` mới chứng minh file đã cài đúng. Phần 5 mới chứng minh phần cứng chạy. Cần cả `INSTALL_OK` lẫn `h264,640,360` và `hevc,640,360`.
 
-## 6. Đẩy repo này lên GitHub
-
-Từ một checkout đã có ba submodule đúng commit ở bảng trên:
-
-```bash
-git add README.md README-vi.md LICENSE .gitmodules .gitignore \
-  build-all.sh install-new-to-usr-local.sh
-git commit
-git push
-```
-
-Đừng `git add rkrga rkmpp ffmpeg-rockchip` như thư mục thường. `.gitignore` đã loại ba thư mục đó. `rkmpp/build/cmake/` là source upstream, nằm trong submodule, không nằm trong repo cha.
-
-Sau khi push, kiểm tra bằng một clone khác:
-
-```bash
-git clone --recurse-submodules https://github.com/thanhtantran/rk3588-media-build.git /tmp/rk3588-media-build-check
-git -C /tmp/rk3588-media-build-check submodule status
-```
-
-Ba id phải khớp bảng trong file này, và `rkmpp/CMakeLists.txt` phải tồn tại. Thư mục rỗng nghĩa là chưa tải submodule.
-
-## 7. Lỗi thường gặp
+## 6. Lỗi thường gặp
 
 | Triệu chứng | Nguyên nhân |
 | --- | --- |
