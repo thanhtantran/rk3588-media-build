@@ -1,0 +1,12 @@
+[submodule "rkrga"]
+	path = rkrga
+	url = https://github.com/nyanmisaka/rk-mirrors.git
+	branch = jellyfin-rga
+[submodule "rkmpp"]
+	path = rkmpp
+	url = https://github.com/nyanmisaka/mpp.git
+	branch = jellyfin-mpp
+[submodule "ffmpeg-rockchip"]
+	path = ffmpeg-rockchip
+	url = https://github.com/nyanmisaka/ffmpeg-rockchip.git
+	branch = master

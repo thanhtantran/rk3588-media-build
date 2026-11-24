@@ -1,0 +1,15 @@
+# Upstream checkouts. Fetch with: git submodule update --init --recursive
+rkrga/
+rkmpp/
+ffmpeg-rockchip/
+
+# Local build products, if a submodule was checked out in-tree anyway
+rkmpp/build-new/
+rkrga/build-native/
+ffmpeg-rockchip/ffmpeg
+ffmpeg-rockchip/ffprobe
+ffmpeg-rockchip/**/*.o
+ffmpeg-rockchip/**/*.d
+ffmpeg-rockchip/**/*.a
+ffmpeg-rockchip/**/*.so
+ffmpeg-rockchip/**/*.so.*

@@ -1,0 +1,20 @@
+# License
+
+This repository is a build recipe. It does not contain the three upstream
+trees. Those trees are git submodules and keep their own licenses. Read the
+file inside the submodule after `git submodule update --init`.
+
+| Path | Upstream | License |
+| --- | --- | --- |
+| `rkrga` | https://github.com/nyanmisaka/rk-mirrors | Apache-2.0 (`rkrga/COPYING`) |
+| `rkmpp` | https://github.com/nyanmisaka/mpp | Apache-2.0 (`rkmpp/LICENSES/Apache-2.0`); some files MIT (`rkmpp/LICENSES/MIT`) |
+| `ffmpeg-rockchip` | https://github.com/nyanmisaka/ffmpeg-rockchip | LGPL v2.1 or later by default (`ffmpeg-rockchip/COPYING.LGPLv2.1`). This build passes `--enable-gpl` and `--enable-version3`, so the resulting ffmpeg binary is GPL v3 or later (`ffmpeg-rockchip/COPYING.GPLv3`). See `ffmpeg-rockchip/LICENSE.md`. |
+
+`README.md`, `README-vi.md`, `build-all.sh`, and `install-new-to-usr-local.sh`
+are documentation for this pinned build and are released under Apache-2.0.
+The text of that license is the same one used by `rkrga` and `rkmpp`:
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+Copyright of the submodule source stays with its upstream authors.
+Do not remove or replace the license files inside the submodules.
