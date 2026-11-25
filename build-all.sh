@@ -24,8 +24,10 @@ need meson
 need ninja
 need cmake
 need pkg-config
-# nasm is optional. This host has no nasm and the working ffmpeg-rockchip
-# build did not use it. Assembler falls back to gcc.
+# libx264 and libass are required by the ffmpeg configure in
+# install-new-to-usr-local.sh. Install libx264-dev and libass-dev first.
+pkg-config --exists x264 || { echo "Missing libx264-dev (pkg-config x264)" >&2; exit 1; }
+pkg-config --exists libass || { echo "Missing libass-dev (pkg-config libass)" >&2; exit 1; }
 
 cd "$SRC/rkrga"
 echo "== rkrga $(git rev-parse --short=8 HEAD) =="

@@ -77,7 +77,7 @@ A leading space and those full ids means the checkout matches this repo. A `-` m
 sudo apt update
 sudo apt install -y \
   build-essential cmake ninja-build meson pkg-config \
-  git libdrm-dev
+  git libdrm-dev libx264-dev libass-dev
 
 ls -l /dev/rga /dev/mpp_service /dev/dri/renderD128 /dev/dma_heap/system
 groups    # need video and render before the smoke tests
@@ -148,7 +148,7 @@ Filters: `scale_rkrga`, `vpp_rkrga`, `overlay_rkrga`.
 
 ## 5. Smoke test
 
-This FFmpeg build has no `libx264`. Make the input with the software `mpeg4` encoder, then transcode it on the VPU and RGA.
+This FFmpeg build enables `libx264` and `libass` (`libx264-dev`, `libass-dev`). The hardware path does not need them. The smoke test still makes the input with the software `mpeg4` encoder, then transcodes it on the VPU and RGA.
 
 ```bash
 FF=/usr/local/bin/ffmpeg

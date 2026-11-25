@@ -75,7 +75,7 @@ Có khoảng trắng đầu dòng và đúng ba id là khớp repo này. Dấu `
 sudo apt update
 sudo apt install -y \
   build-essential cmake ninja-build meson pkg-config \
-  git libdrm-dev
+  git libdrm-dev libx264-dev libass-dev
 
 ls -l /dev/rga /dev/mpp_service /dev/dri/renderD128 /dev/dma_heap/system
 groups    # cần video và render trước khi smoke test
@@ -146,7 +146,7 @@ Filter: `scale_rkrga`, `vpp_rkrga`, `overlay_rkrga`.
 
 ## 5. Smoke test
 
-Bản FFmpeg này không có `libx264`. Tạo file vào bằng encoder `mpeg4` phần mềm, rồi transcode trên VPU và RGA.
+Bản FFmpeg này bật `libx264` và `libass` (gói `libx264-dev`, `libass-dev`). Đường encode phần cứng không cần hai thư viện đó. Smoke test vẫn tạo file vào bằng encoder `mpeg4` phần mềm, rồi transcode trên VPU và RGA.
 
 ```bash
 FF=/usr/local/bin/ffmpeg

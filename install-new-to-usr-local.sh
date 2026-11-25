@@ -51,7 +51,8 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./configure \
   --prefix="$PREFIX" \
   --enable-gpl --enable-version3 \
-  --enable-libdrm --enable-rkmpp --enable-rkrga
+  --enable-libdrm --enable-rkmpp --enable-rkrga \
+  --enable-libx264 --enable-libass
 make -j"$(nproc)"
 make install
 ldconfig
