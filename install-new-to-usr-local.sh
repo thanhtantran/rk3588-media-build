@@ -46,7 +46,14 @@ ldconfig
 
 echo "== configure and install ffmpeg-rockchip =="
 cd "$SRC/ffmpeg-rockchip"
-make distclean
+# A half-removed config.mak has an empty SRC_PATH, and `make distclean`
+# then looks for /tests/Makefile. Remove generated files directly.
+if [[ -f ffbuild/config.mak ]] && grep -q '^SRC_PATH=.' ffbuild/config.mak; then
+  make distclean
+else
+  rm -f ffbuild/config.mak config.h config_components.h .config
+  rm -f libavutil/avconfig.h libavutil/ffversion.h
+fi
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./configure \
   --prefix="$PREFIX" \

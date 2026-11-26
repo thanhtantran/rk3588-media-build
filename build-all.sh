@@ -54,7 +54,11 @@ grep -q '848b885f' mpp/version.h || {
 
 cd "$SRC/ffmpeg-rockchip"
 echo "== ffmpeg-rockchip $(git rev-parse --short=8 HEAD) =="
-make distclean >/dev/null 2>&1 || true
+if [[ -f ffbuild/config.mak ]] && grep -q '^SRC_PATH=.' ffbuild/config.mak; then
+  make distclean >/dev/null 2>&1 || true
+else
+  rm -f ffbuild/config.mak config.h config_components.h .config
+fi
 # Configure only. install-new-to-usr-local.sh configures again after MPP
 # is in /usr/local, because this configure would still see the old library.
 echo "BUILD_OK rkrga build-native, rkmpp build-new"
